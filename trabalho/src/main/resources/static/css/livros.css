@@ -1,0 +1,74 @@
+body {
+	background-color: #dee1e3fa;
+	font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+h1 {
+	color: #1a4752e1;
+}
+#main-content {
+    background-color: ghostwhite;
+    width: fit-content;
+    padding: 1em;
+    margin: auto;
+    border: solid 0.5px #1a4752e1;
+}
+#div-livros {
+    background-color: azure;
+    margin: auto;
+    text-align: center;
+    border: solid 1px #1a4752e1;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    box-shadow: -5px 5px 20px -6px #1a4752e1;
+}
+#tabela-livros{
+	padding: 5%;
+	width: 100%;
+	
+}
+#tabela-livros td{
+	font-variant: all-petite-caps;
+}
+
+#tabela-livros th{
+	color: #1a4752e1;
+}
+.form-input{
+	display: flex;
+	flex-direction: column;
+}
+#form {
+    margin: 5% auto;
+    padding: 1em;
+    width: 70vw;
+    box-sizing: border-box;
+    background-color: azure;
+    color: #1a4752e1;
+    font-weight: 700;
+    border: solid 1px #1a4752e1;
+    border-radius: 5px;
+}
+#form > div > form{
+	display: flex;
+    gap: 1em;
+    justify-content: space-around;
+}
+button {
+    padding: 0.5em;
+    height: 2.2em;
+    align-self: flex-end;
+    color: white;
+    background-color: #1a4752e1;
+    border: solid 1px black;
+    width: 4em;
+}
+button:hover {
+    background-color: cadetblue;
+}
+#p-inicial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

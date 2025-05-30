@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Biblioteca Virtual</title>
+	<script type="text/javascript" src="js/Livros.js"></script>
+	<link rel="stylesheet" href="css/livros.css">
+	<link rel="icon" href="./favicon.png" type="image/png">
+</head>
+<body>
+	<div id="main-content">
+		<div id="p-inicial">
+			<h1>Guarde aqui os livros que você já leu</h1>
+			<p>Esta é uma biblioteca virtual onde você pode gravar os livros que você já leu</p>
+		</div>
+		
+		<div id="form">
+			<h2 style="text-align: center; font-size: x-large;">Inserir novo livro:</h2>
+			<div>
+				<form th:action="@{/cadastrar}" method="post" th:object="${livro}">
+					<div class="form-input">
+						<label for="title">Título:</label>
+						<input type="text" id="title" th:field="*{titulo}">
+					</div>
+					<div class="form-input">
+						<label for="autor">Autor:</label>
+						<input type="text" id="autor" th:field="*{autor}">
+					</div>
+					<div class="form-input">
+						<label for="ano">Ano de publicação:</label>
+						<input type="text" id="ano" th:field="*{ano}">
+					</div>
+					<div class="form-input">
+						<label for="genero">Gênero:</label>
+						<input type="text" id="genero" th:field="*{genero}">
+					</div>
+					<button>
+						OK
+						<input type="hidden" id="id" th:field="*{id}">
+						<input type="submit" hidden="true">
+					</button>
+				</form>
+			</div>
+		</div>
+		<div id="div-livros">
+			<h1>Biblioteca</h1>
+			<table id="tabela-livros">
+				<thead>
+					<tr>
+						<th style="text-align: left;">LIVRO</th>
+						<th style="text-align: left;">AUTOR</th>
+						<th style="text-align: center;">ANO DE PUBLICAÇÃO</th>
+						<th style="text-align: center;">GÊNERO</th>
+						<th style="text-align: center;">&nbsp;</th>
+						<th style="text-align: center; color: red;">excluir</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="livro:${livros}">
+						<td style="text-align: left;" th:text="${livro.titulo}"></td>
+						<td style="text-align: left;" th:text="${livro.autor}"></td>
+						<td style="text-align: center;" th:text="${livro.ano}"></td>
+						<td style="text-align: center;" th:text="${livro.genero}"></td>
+						<td style="text-align: center;">
+							<form th:action="@{/editar}" method="post">
+								<button type="submit">v</button>
+								<input type="hidden" th:name="idLivro" th:value="${livro.id}">
+							</form>
+						</td>
+						<td style="text-align: center;">
+							<form th:action="@{/remover}" method="post">
+								<button type="submit">x</button>
+								<input type="hidden" th:name="idLivro" th:value="${livro.id}">
+							</form>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
