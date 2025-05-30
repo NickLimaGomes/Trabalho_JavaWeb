@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Biblioteca Virtual</title>
 	<script type="text/javascript" src="js/Livros.js"></script>
+	<script src="https://kit.fontawesome.com/bec60d9aab.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="css/livros.css">
 	<link rel="icon" href="./favicon.png" type="image/png">
 </head>
@@ -11,7 +12,7 @@
 	<div id="main-content">
 		<div id="p-inicial">
 			<h1>Guarde aqui os livros que você já leu</h1>
-			<p>Esta é uma biblioteca virtual onde você pode gravar os livros que você já leu</p>
+			<p style="font-size: large;">Esta é uma biblioteca virtual onde você pode gravar os livros que você já leu</p>
 		</div>
 		
 		<div id="form">
@@ -52,7 +53,7 @@
 						<th style="text-align: center;">ANO DE PUBLICAÇÃO</th>
 						<th style="text-align: center;">GÊNERO</th>
 						<th style="text-align: center;">&nbsp;</th>
-						<th style="text-align: center; color: red;">excluir</th>
+						<th style="text-align: center;">&nbsp;</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -63,13 +64,17 @@
 						<td style="text-align: center;" th:text="${livro.genero}"></td>
 						<td style="text-align: center;">
 							<form th:action="@{/editar}" method="post">
-								<button type="submit">v</button>
+								<button type="submit">
+									<i class="fa-solid fa-pencil"></i>
+								</button>
 								<input type="hidden" th:name="idLivro" th:value="${livro.id}">
 							</form>
 						</td>
 						<td style="text-align: center;">
 							<form th:action="@{/remover}" method="post">
-								<button type="submit">x</button>
+								<button type="submit">
+									<i class="fa-regular fa-circle-xmark"></i>
+								</button>
 								<input type="hidden" th:name="idLivro" th:value="${livro.id}">
 							</form>
 						</td>
