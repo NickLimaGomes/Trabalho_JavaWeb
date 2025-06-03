@@ -20,6 +20,7 @@ public class Controller {
 	public String home(Model model) {
 		model.addAttribute("livros", service.listarLivros());
 		model.addAttribute("livro", new Livros());
+		model.addAttribute("op","Inserir novo livro:");
 		return "index";
 	}
 	
@@ -40,6 +41,7 @@ public class Controller {
 		Livros livro = service.pesquisarLivro(idLivro);
 		model.addAttribute("livros", service.listarLivros());
 		model.addAttribute("livro", livro);
+		model.addAttribute("op","Editar livro:");
 		return "index";
 	}
 }

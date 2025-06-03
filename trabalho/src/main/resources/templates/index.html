@@ -16,7 +16,7 @@
 		</div>
 		
 		<div id="form">
-			<h2 style="text-align: center; font-size: x-large;">Inserir novo livro:</h2>
+			<h2 style="text-align: center; font-size: x-large;" th:text="${op}"></h2>
 			<div>
 				<form th:action="@{/cadastrar}" method="post" th:object="${livro}">
 					<div class="form-input">
@@ -64,7 +64,7 @@
 						<td style="text-align: center;" th:text="${livro.genero}"></td>
 						<td style="text-align: center;">
 							<form th:action="@{/editar}" method="post">
-								<button type="submit">
+								<button type="submit" title="editar">
 									<i class="fa-solid fa-pencil"></i>
 								</button>
 								<input type="hidden" th:name="idLivro" th:value="${livro.id}">
@@ -72,7 +72,7 @@
 						</td>
 						<td style="text-align: center;">
 							<form th:action="@{/remover}" method="post">
-								<button type="submit">
+								<button type="submit" title="excluir">
 									<i class="fa-regular fa-circle-xmark"></i>
 								</button>
 								<input type="hidden" th:name="idLivro" th:value="${livro.id}">
